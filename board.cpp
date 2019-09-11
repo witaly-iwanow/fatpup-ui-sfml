@@ -127,10 +127,19 @@ void Board::ProcessUserMove(const int destSquareIdx)
         const int dst_col = DisplayColToFatpup(destSquareIdx % fatpup::BOARD_SIZE);
         const auto moves = _position.possibleMoves(src_row, src_col, dst_row, dst_col);
 
-        if (!moves.empty())
-            Move(moves[0]);
-
         _selectedSquareIdx = -1;
+
+        if (!moves.empty())
+        {
+            // the move is legit, do it. To do: "custom" promotions are not handled properly,
+            // for now we just pick the first move which is promotion to queen
+            Move(moves[0]);
+        }
+        else
+        {
+            // in case the player selects one of his pieces but then changes his mind and clicks another one
+            ProcessUserMove(destSquareIdx);
+        }
     }
 }
 
