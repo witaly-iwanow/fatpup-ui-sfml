@@ -9,7 +9,7 @@ endif()
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_STANDARD 11)
 
-find_package(SFML 2 COMPONENTS graphics window REQUIRED)
+find_package(SFML 2.5 COMPONENTS graphics window REQUIRED)
 
 add_subdirectory(fatpup)
 include_directories(${FATPUP_INCLUDE_DIR})
