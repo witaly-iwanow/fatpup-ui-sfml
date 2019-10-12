@@ -47,7 +47,8 @@ int main()
     // create the window
     sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "Fatpup Chess");
     window.setFramerateLimit(10);
-    window.setVerticalSyncEnabled(true);
+    // SFML docs don't recommend setting setFramerateLimit and setVerticalSyncEnabled(true) simultaneously
+    //window.setVerticalSyncEnabled(true);
 
     sf::View view;
     view.setSize(targetWindowWidth, targetWindowHeight);
