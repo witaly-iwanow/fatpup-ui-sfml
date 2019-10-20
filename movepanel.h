@@ -10,7 +10,7 @@
 class MovePanel
 {
 public:
-    explicit MovePanel(float xOff, float width, float heigh);
+    explicit MovePanel(float xOff, float width, float height);
 
     void SetPosition(const fatpup::Position& pos);
     void Move(fatpup::Move move);
