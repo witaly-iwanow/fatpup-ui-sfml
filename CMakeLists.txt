@@ -14,7 +14,7 @@ find_package(SFML 2.5 COMPONENTS graphics window REQUIRED)
 add_subdirectory(fatpup)
 include_directories(${FATPUP_INCLUDE_DIR})
 
-add_executable(fatpup-ui board.h board.cpp colors.h movepanel.h movepanel.cpp fatpup-ui.cpp umax4_8.c)
+add_executable(fatpup-ui board.h board.cpp colors.h movepanel.h movepanel.cpp fatpup-ui.cpp)
 
 target_link_libraries(fatpup-ui ${FATPUP_LIBRARIES} sfml-graphics sfml-window)
 if (UNIX AND NOT APPLE)

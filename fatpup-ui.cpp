@@ -39,6 +39,13 @@ sf::View GetLetterboxView(sf::View view, int windowWidth, int windowHeight)
 
 int main()
 {
+    fatpup::Engine* engine = fatpup::Engine::Create("minimax");
+    if (!engine)
+    {
+        std::cerr << "Can't create minimax engine, terminating...\n";
+        return -1;
+    }
+
     const int windowHeight = (std::min(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height) * 3 / 4) & 0xfff0;
     const int windowWidth = windowHeight * 5 / 4;
     const int targetWindowHeight = 1200;
@@ -59,6 +66,8 @@ int main()
     fatpup::Position initialPos;
     initialPos.setInitial();
     board.SetPosition(initialPos);
+    engine->SetPosition(initialPos);
+    board.SetEngine(engine);
 
     MovePanel movePanel(board.GetSize().x, board.GetSize().x / 4, board.GetSize().y);
     board.SetMovePanel(&movePanel);
@@ -96,6 +105,8 @@ int main()
         // end the current frame
         window.display();
     }
+
+    delete engine;
 
     return 0;
 }
