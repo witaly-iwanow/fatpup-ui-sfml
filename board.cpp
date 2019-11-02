@@ -62,7 +62,6 @@ Board::Board(const sf::Vector2u windowSize, bool playingWhite):
     _position.setEmpty();
 
     _lastMove.setEmpty();
-    _engineThread = new std::thread(&Board::EngineThreadFunc, this);
 }
 
 Board::~Board()
